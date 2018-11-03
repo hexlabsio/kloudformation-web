@@ -1,0 +1,40 @@
+.featureList
+  padding: 2em
+  max-width: 1140px
+  margin-right: auto
+  margin-left: auto
+
+  .title
+    padding-bottom: 0.5em
+    font-size: 2em
+    font-weight: bold
+    text-align: center
+    color: #007bff
+
+  .features
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    justify-content: center
+
+    .feature
+      display: flex
+      padding: 2em
+      max-width: 320px
+
+      .icon
+        font-size: 3em
+        padding-right: 0.5em
+        color: #007bff
+
+      .details
+        .name
+          font-size: 1.5em
+          padding-bottom: 0.5em
+        .description
+          line-height: 2em
+          font-size: 1.125em
+
+@media only screen and (min-width: 600px)
+  .featureList .features
+    flex-direction: row

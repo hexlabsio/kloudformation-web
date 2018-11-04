@@ -7,7 +7,7 @@ export default props => {
         <div className="introduction">
             <div className="showcase">
                 <div className="title">Kloud Formation is built for <span className="typed">
-                        <Typed strings={['Saftey', 'Brevity', 'Lucidity']} typeSpeed={100} backSpeed={100} loop />
+                        <Typed strings={['Safety', 'Brevity', 'Lucidity']} typeSpeed={100} backSpeed={100} loop />
                 </span>
                 </div>
                 <div className="sub">Kloud Formation provides a Kotlin based Domain Specific Language for producing Amazon Web Service Cloud Formation templates</div>

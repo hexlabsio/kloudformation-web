@@ -1,1 +1,42 @@
+footer
+  background: #ECF5FE
+  padding: 2em 4em
+  flex: 1
 
+  .details
+    display: flex
+    max-width: 1140px
+    margin-right: auto
+    margin-left: auto
+    align-items: center
+    flex-direction: column
+
+  .development
+    flex: 1
+    padding: 1em 0
+  a
+    text-decoration: none
+  .contributors
+    padding-bottom: 0.25em
+
+
+  .usefulLinks
+    display: flex
+    flex-direction: row
+
+    .usefulLink
+      padding: 0.5em 1em
+
+@media only screen and (min-width: 790px)
+  footer
+    .details
+      flex-direction: row
+    .usefulLinks
+      flex-direction: column
+
+@media only screen and (min-width: 900px)
+  footer
+    .details
+      flex-direction: row
+    .usefulLinks
+      flex-direction: row

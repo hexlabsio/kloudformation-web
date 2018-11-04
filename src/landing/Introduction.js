@@ -14,7 +14,7 @@ export default props => {
                 <div className="action">
                     <a href="https://github.com/hexlabsio/kloudformation-specification-generator">
                     <div className="button">
-                        <span>Learn more</span>
+                        <span>Learn Kloud Formation</span>
                         <i className="fal fa-search" />
                     </div>
                     </a>

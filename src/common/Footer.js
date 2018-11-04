@@ -8,7 +8,7 @@ class Footer extends React.Component {
                 <div className="details">
                     <div className="development">
                         <div className="contributors">
-                            Kloud Formation is designed and developed open source on <a href="https://github.com/hexlabsio">GitHub</a>
+                            Kloud Formation is developed on <a href="https://github.com/hexlabsio">GitHub</a>
                         </div>
                         <div className="support">
                             with support from <a href="https://hexlabs.io">HexLabs</a>

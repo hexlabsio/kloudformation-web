@@ -8,7 +8,7 @@ class Header extends React.Component {
             <header>
                 <div className="logo">
                     <a href="https://github.com/hexlabsio/kloudformation-specification-generator">
-                        <img src={logo} />
+                        <img alt="Kloud Formation logo" src={logo} />
                     </a>
                 </div>
                 <nav>

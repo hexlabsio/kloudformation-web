@@ -6,7 +6,7 @@ export default props => {
     return (
         <div className="introduction">
             <div className="showcase">
-                <div className="title">Kloud Formation is build for <span className="typed">
+                <div className="title">Kloud Formation is built for <span className="typed">
                         <Typed strings={['Saftey', 'Brevity', 'Lucidity']} typeSpeed={100} backSpeed={100} loop />
                 </span>
                 </div>

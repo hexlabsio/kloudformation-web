@@ -48,7 +48,7 @@ export default props => {
                     </div>
                     <div className="details">
                         <div className="name">Empowering</div>
-                        <div className="description">Develop templates with the power of Kotlin bring together programming language features</div>
+                        <div className="description">Develop templates with the power of Kotlin, bring together programming language features</div>
                     </div>
                 </div>
                 <div className="feature">

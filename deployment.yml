@@ -8,7 +8,7 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: index.html
-  WebsiteBucketPolicy:
+  KloudFormationWebBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
       Bucket: !Ref 'KloudFormationWebBucket'

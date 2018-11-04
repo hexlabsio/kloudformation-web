@@ -1,5 +1,4 @@
 import React from "react";
-import {connect} from "react-redux";
 import "./header.sass"
 import logo from "../asset/image/kloudformation-logo-white.png"
 
@@ -37,13 +36,4 @@ class Header extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return state
-};
-
-const mapDispatchToProps = () => {
-    return {
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header

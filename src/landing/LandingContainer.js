@@ -1,30 +1,20 @@
 import React from "react";
-import {connect} from "react-redux";
 import "./landing.sass"
 import Introduction from "./Introduction";
 import Features from "./Features";
+import Footer from "../common/Footer";
 
 
 class LandingContainer extends React.Component {
-    componentDidMount() {
-    }
-
     render() {
         return (
             <main>
                 <Introduction />
                 <Features />
+                <Footer />
             </main>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return state
-};
-
-const mapDispatchToProps = () => {
-    return {}
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(LandingContainer);
+export default LandingContainer;

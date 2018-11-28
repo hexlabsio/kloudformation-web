@@ -11,16 +11,29 @@ jobs:
         keys:
         - v1-dependencies-{{ checksum "package.json" }}
         - v1-dependencies-
-
+    - run: mkdir kotlin && cd kotlin && curl https://github.com/JetBrains/kotlin/releases/download/v1.3.10/kotlin-compiler-1.3.10.zip --output kotlin.zip && unzip kotlin.zip
+    - run:
+        name: Download kotlin and kloudformation
+        command: |
+          mkdir -p kotlin
+          cd kotlin
+          curl https://github.com/JetBrains/kotlin/releases/download/v1.3.10/kotlin-compiler-1.3.10.zip --output kotlin.zip
+          unzip kotlin.zip
+          curl https://bintray.com/hexlabsio/kloudformation/download_file?file_path=io%2Fkloudformation%2Fkloudformation%2F0.1.35%2Fkloudformation-0.1.35-uber.jar --output kloudformation.jar
+    - run: ls -ltr kotlin
+    - run:
+        name: Transpile Kloudformation Stack
+        command: |
+          cd kotlin
+          kotlinc/bin/kotlinc -classpath kloudformation.jar .circleci/Kloudformation.kt -include-runtime -d stack.jar
+          java -classpath stack.jar:kloudformation.jar io.kloudformation.StackBuilderKt Kloudformation template.yml
+          cat template.yml
     - run: npm install
-
     - run: npm run build
     - run: npm install cfn-create-or-update
-
     - save_cache:
         paths:
         - node_modules
         key: v1-dependencies-{{ checksum "package.json" }}
-
     - run: node ./node_modules/cfn-create-or-update/cli.js --stack-name kloudformation-web --template-body file://deployment.yml --region eu-west-1 --wait
     - run: aws s3 sync ./build s3://kloudformation-web/

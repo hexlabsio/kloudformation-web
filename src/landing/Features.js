@@ -7,7 +7,7 @@ export default props => {
             <div className="title">Features</div>
             <div className="features">
                 <div className="feature">
-                    <div className="icon">
+                    <div className="feature-icon">
                         <i className="fal fa-code"/>
                     </div>
                     <div className="details">
@@ -16,7 +16,7 @@ export default props => {
                     </div>
                 </div>
                 <div className="feature">
-                    <div className="icon">
+                    <div className="feature-icon">
                         <i className="fal fa-bug"/>
                     </div>
                     <div className="details">
@@ -25,7 +25,7 @@ export default props => {
                     </div>
                 </div>
                 <div className="feature">
-                    <div className="icon">
+                    <div className="feature-icon">
                         <i className="fal fa-compress-alt"/>
                     </div>
                     <div className="details">
@@ -34,7 +34,7 @@ export default props => {
                     </div>
                 </div>
                 <div className="feature">
-                    <div className="icon">
+                    <div className="feature-icon">
                         <i className="fal fa-lightbulb"/>
                     </div>
                     <div className="details">
@@ -43,7 +43,7 @@ export default props => {
                     </div>
                 </div>
                 <div className="feature">
-                    <div className="icon">
+                    <div className="feature-icon">
                         <i className="fal fa-thumbs-up"/>
                     </div>
                     <div className="details">
@@ -52,7 +52,7 @@ export default props => {
                     </div>
                 </div>
                 <div className="feature">
-                    <div className="icon">
+                    <div className="feature-icon">
                         <i className="fal fa-shield-check"/>
                     </div>
                     <div className="details">

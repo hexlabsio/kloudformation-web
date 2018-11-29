@@ -26,7 +26,9 @@ jobs:
           cd kotlin
           kotlinc/bin/kotlinc -classpath kloudformation.jar ../.circleci/Kloudformation.kt -include-runtime -d stack.jar
           java -classpath stack.jar:kloudformation.jar io.kloudformation.StackBuilderKt Kloudformation template.yml
-          cat template.yml
+          mv template.yml ..
+    - store_artifacts:
+        path: template.yml
     - run: npm install
     - run: npm run build
     - run: npm install cfn-create-or-update

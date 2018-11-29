@@ -24,7 +24,7 @@ jobs:
         name: Transpile Kloudformation Stack
         command: |
           cd kotlin
-          kotlinc/bin/kotlinc -classpath kloudformation.jar .circleci/Kloudformation.kt -include-runtime -d stack.jar
+          kotlinc/bin/kotlinc -classpath kloudformation.jar ../.circleci/Kloudformation.kt -include-runtime -d stack.jar
           java -classpath stack.jar:kloudformation.jar io.kloudformation.StackBuilderKt Kloudformation template.yml
           cat template.yml
     - run: npm install

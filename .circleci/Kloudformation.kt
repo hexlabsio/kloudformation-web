@@ -27,7 +27,6 @@ class Kloudformation: StackBuilder{
         }
         bucket {
             bucketName("kloudformation-web")
-            accessControl(+"PublicRead")
             websiteConfiguration {
                 indexDocument(index)
                 errorDocument(index)

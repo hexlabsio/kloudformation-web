@@ -62,7 +62,7 @@ class Kloudformation: StackBuilder{
                                     viewerProtocolPolicy = +"allow-all"
                             )),
                             priceClass = +"PriceClass_200",
-                            viewerCertificate = ViewerCertificate(acmCertificateArn = certificate.ref())
+                            viewerCertificate = ViewerCertificate(acmCertificateArn = certificate.ref(), sslSupportMethod = +"sni-only")
                     )
             )
         }

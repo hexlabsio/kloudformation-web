@@ -4,6 +4,8 @@ import io.kloudformation.function.plus
 import io.kloudformation.model.iam.Resource
 import io.kloudformation.model.iam.action
 import io.kloudformation.model.iam.policyDocument
+import io.kloudformation.property.certificatemanager.certificate.DomainValidationOption
+import io.kloudformation.property.certificatemanager.certificate.domainValidationOption
 import io.kloudformation.property.cloudfront.cloudfrontoriginaccessidentity.CloudFrontOriginAccessIdentityConfig
 import io.kloudformation.property.cloudfront.distribution.*
 import io.kloudformation.resource.certificatemanager.certificate
@@ -11,6 +13,7 @@ import io.kloudformation.resource.cloudfront.cloudFrontOriginAccessIdentity
 import io.kloudformation.resource.cloudfront.distribution
 import io.kloudformation.resource.s3.bucket
 import io.kloudformation.resource.s3.bucketPolicy
+import io.kloudformation.resource.sdb.domain
 
 class Kloudformation: StackBuilder{
     override fun KloudFormation.create() {
@@ -18,6 +21,11 @@ class Kloudformation: StackBuilder{
         val domainName = "klouds.io"
         val certificate = certificate(+"www.$domainName"){
             subjectAlternativeNames(listOf(+domainName))
+            domainValidationOptions(listOf(DomainValidationOption(
+                    domainName = +domainName,
+                    validationDomain = +domainName
+            )))
+            validationMethod("DNS")
         }
         bucket {
             bucketName("kloudformation-web")

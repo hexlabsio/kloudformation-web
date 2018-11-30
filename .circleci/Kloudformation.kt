@@ -26,7 +26,7 @@ class Kloudformation: StackBuilder{
             validationMethod("DNS")
         }
         bucket {
-            bucketName("kloudformation-web")
+            accessControl(+"PublicRead")
             websiteConfiguration {
                 indexDocument(index)
                 errorDocument(index)

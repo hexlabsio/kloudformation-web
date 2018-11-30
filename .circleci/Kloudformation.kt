@@ -54,13 +54,13 @@ class Kloudformation: StackBuilder{
                             origins = listOf(origin),
                             enabled = +true,
                             aliases = +listOf(+"www.$domainName", +domainName),
-                            cacheBehaviors = listOf(CacheBehavior(
-                                    pathPattern = +"*",
+                            defaultCacheBehavior = DefaultCacheBehavior(
                                     allowedMethods = +listOf(+"GET", +"HEAD", +"OPTIONS"),
                                     forwardedValues = ForwardedValues(queryString = +true),
                                     targetOriginId = origin.id,
                                     viewerProtocolPolicy = +"allow-all"
-                            )),
+                            ),
+                            defaultRootObject = +"index.html",
                             priceClass = +"PriceClass_200",
                             viewerCertificate = ViewerCertificate(acmCertificateArn = certificate.ref(), sslSupportMethod = +"sni-only")
                     )

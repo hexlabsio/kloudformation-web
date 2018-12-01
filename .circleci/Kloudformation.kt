@@ -44,7 +44,7 @@ class Kloudformation: StackBuilder{
             val originAccessIdentity = cloudFrontOriginAccessIdentity(CloudFrontOriginAccessIdentityConfig(+"KloudformationOrigin"))
             val origin = Origin(
                     id = +"s3Origin",
-                    domainName = bucket.WebsiteURL(),
+                    domainName = bucket.DomainName(),
                     s3OriginConfig = S3OriginConfig(+"origin-access-identity/cloudfront/" + originAccessIdentity.ref())
             )
             distribution(

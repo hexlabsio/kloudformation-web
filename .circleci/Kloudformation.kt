@@ -11,6 +11,9 @@ import io.kloudformation.model.iam.action
 import io.kloudformation.model.iam.policyDocument
 import io.kloudformation.property.certificatemanager.certificate.DomainValidationOption
 import io.kloudformation.property.cloudfront.distribution.*
+import io.kloudformation.property.route53.recordsetgroup.AliasTarget
+import io.kloudformation.property.route53.recordsetgroup.aliasTarget
+import io.kloudformation.property.route53.recordsetgroup.recordSet
 import io.kloudformation.resource.certificatemanager.Certificate
 import io.kloudformation.resource.certificatemanager.certificate
 import io.kloudformation.resource.cloudfront.Distribution
@@ -19,6 +22,7 @@ import io.kloudformation.resource.s3.Bucket
 import io.kloudformation.resource.s3.BucketPolicy
 import io.kloudformation.resource.s3.bucket
 import io.kloudformation.resource.s3.bucketPolicy
+import io.kloudformation.resource.sdb.domain
 
 enum class CertificationValidationMethod{ EMAIL, DNS }
 enum class SslSupportMethod(val value: String){ SNI("sni-only"), VIP("vip") }
@@ -43,6 +47,7 @@ fun KloudFormation.s3Website(
         indexDocument: String = "index.html",
         errorDocument: String = indexDocument,
         bucketName: String? = null,
+        hostedZoneId: String? = null,
         certificateValidationMethod: CertificationValidationMethod = CertificationValidationMethod.DNS,
         certificateBuilder: Certificate.Builder.() -> Certificate.Builder = {this},
         certificateReference: Value<String> = certificate(domainName,certificateValidationMethod, certificateBuilder).ref(),
@@ -95,7 +100,24 @@ fun KloudFormation.s3Website(
         distribution: Distribution = distribution(
                 distributionConfig = distributionConfig
         ){ distributionBuilder() }
-) {}
+) {
+    if(hostedZoneId != null) {
+        recordSet(
+                type = +"A",
+                name = +domainName + "."
+        ) {
+            tTL("300")
+            aliasTarget(AliasTarget(dNSName = distribution.DomainName(), hostedZoneId = +hostedZoneId))
+        }
+        recordSet(
+                type = +"CNAME",
+                name = +"www" + +domainName + "."
+        ) {
+            tTL("300")
+            aliasTarget(AliasTarget(dNSName = distribution.DomainName(), hostedZoneId = +hostedZoneId))
+        }
+    }
+}
 
 val certificateVariable = "KloudsCertificate"
 
@@ -109,6 +131,11 @@ class CertInUsEast1: StackBuilder{
 }
 class Kloudformation: StackBuilder{
     override fun KloudFormation.create() {
-        s3Website("klouds.io", bucketName = "kloudformation-website",certificateReference = +"arn:aws:acm:us-east-1:662158168835:certificate/7541c12e-e284-4483-bd9d-fec25e90771c")
+        s3Website(
+                domainName = "klouds.io",
+                bucketName = "kloudformation-website",
+                hostedZoneId = "Z3OXURY7U9JE70",
+                certificateReference = +"arn:aws:acm:us-east-1:662158168835:certificate/7541c12e-e284-4483-bd9d-fec25e90771c"
+        )
     }
 }

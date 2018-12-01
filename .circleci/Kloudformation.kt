@@ -2,6 +2,7 @@ import io.kloudformation.KloudFormation
 import io.kloudformation.StackBuilder
 import io.kloudformation.Value
 import io.kloudformation.function.plus
+import io.kloudformation.model.KloudFormationTemplate.Builder.Companion.awsRegion
 import io.kloudformation.model.iam.Resource
 import io.kloudformation.model.iam.action
 import io.kloudformation.model.iam.policyDocument
@@ -44,7 +45,7 @@ class Kloudformation: StackBuilder{
             )
             val origin = Origin(
                     id = +"s3Origin",
-                    domainName = bucket.WebsiteURL(),
+                    domainName = bucket.ref() + +".s3-website-" + awsRegion + +".amazonaws.com",
                     customOriginConfig = CustomOriginConfig(
                             originProtocolPolicy = +"http-only"
                     )

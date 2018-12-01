@@ -42,4 +42,4 @@ jobs:
         key: v1-dependencies-{{ checksum "package.json" }}
     - run: node ./node_modules/cfn-create-or-update/cli.js --stack-name kloudformation-web-cert --template-body file://certTemplate.yml --timeout-in-minutes 60 --region us-east-1 --wait
     - run: node ./node_modules/cfn-create-or-update/cli.js --stack-name kloudformation-web --template-body file://template.yml --timeout-in-minutes 60 --region eu-west-1 --wait
-    - run: aws s3 sync ./build s3://kloudformation-web/
+    - run: aws s3 sync ./build s3://kloudformation-website/

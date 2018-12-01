@@ -30,9 +30,9 @@ jobs:
           mv certTemplate.yml ..
           mv template.yml ..
     - store_artifacts:
-        paths:
-        - template.yml
-        - certTemplate.yml
+        path: template.yml
+    - store_artifacts:
+        path: certTemplate.yml
     - run: npm install
     - run: npm run build
     - run: npm install cfn-create-or-update

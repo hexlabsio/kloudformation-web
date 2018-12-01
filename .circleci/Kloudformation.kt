@@ -3,6 +3,7 @@ import io.kloudformation.StackBuilder
 import io.kloudformation.Value
 import io.kloudformation.function.ImportValue
 import io.kloudformation.function.plus
+import io.kloudformation.json
 import io.kloudformation.model.KloudFormationTemplate.Builder.Companion.awsRegion
 import io.kloudformation.model.Output
 import io.kloudformation.model.iam.Resource
@@ -108,6 +109,6 @@ class CertInUsEast1: StackBuilder{
 }
 class Kloudformation: StackBuilder{
     override fun KloudFormation.create() {
-        s3Website("klouds.io", bucketName = "kloudformation-website",certificateReference = ImportValue(+certificateVariable))
+        s3Website("klouds.io", bucketName = "kloudformation-website",certificateReference = json(mapOf("Fn::ImportValue" to +certificateVariable)) as Value<String>)
     }
 }

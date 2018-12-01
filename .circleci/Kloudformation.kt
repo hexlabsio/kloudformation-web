@@ -1,5 +1,6 @@
 import io.kloudformation.KloudFormation
 import io.kloudformation.StackBuilder
+import io.kloudformation.Value
 import io.kloudformation.function.plus
 import io.kloudformation.model.iam.Resource
 import io.kloudformation.model.iam.action
@@ -41,11 +42,14 @@ class Kloudformation: StackBuilder{
                         ) { allPrincipals() }
                     }
             )
-            val originAccessIdentity = cloudFrontOriginAccessIdentity(CloudFrontOriginAccessIdentityConfig(+"KloudformationOrigin"))
             val origin = Origin(
                     id = +"s3Origin",
-                    domainName = bucket.DomainName(),
-                    s3OriginConfig = S3OriginConfig(+"origin-access-identity/cloudfront/" + originAccessIdentity.ref())
+                    domainName = bucket.WebsiteURL(),
+                    customOriginConfig = CustomOriginConfig(
+                            hTTPPort = Value.Of(80),
+                            hTTPSPort = Value.Of(433),
+                            originProtocolPolicy = +"https-only"
+                    )
             )
             distribution(
                     DistributionConfig(

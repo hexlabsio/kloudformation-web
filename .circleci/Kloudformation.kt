@@ -43,7 +43,6 @@ fun KloudFormation.s3Website(
         indexDocument: String = "index.html",
         errorDocument: String = indexDocument,
         bucketName: String? = null,
-        hostedZoneId: String? = null,
         certificateValidationMethod: CertificationValidationMethod = CertificationValidationMethod.DNS,
         certificateBuilder: Certificate.Builder.() -> Certificate.Builder = {this},
         certificateReference: Value<String> = certificate(domainName,certificateValidationMethod, certificateBuilder).ref(),
@@ -97,20 +96,6 @@ fun KloudFormation.s3Website(
                 distributionConfig = distributionConfig
         ){ distributionBuilder() }
 ) {
-    if(hostedZoneId != null) {
-        recordSet(
-                type = +"A",
-                name = +domainName + "."
-        ) {
-            aliasTarget(AliasTarget(dNSName = distribution.DomainName(), hostedZoneId = +hostedZoneId))
-        }
-        recordSet(
-                type = +"CNAME",
-                name = +"www" + +domainName + "."
-        ) {
-            resourceRecords(listOf(distribution.DomainName()))
-        }
-    }
 }
 
 val certificateVariable = "KloudsCertificate"
@@ -128,7 +113,6 @@ class Kloudformation: StackBuilder{
         s3Website(
                 domainName = "klouds.io",
                 bucketName = "kloudformation-website",
-                hostedZoneId = "Z3OXURY7U9JE70",
                 certificateReference = +"arn:aws:acm:us-east-1:662158168835:certificate/7541c12e-e284-4483-bd9d-fec25e90771c"
         )
 

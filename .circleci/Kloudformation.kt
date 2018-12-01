@@ -48,7 +48,7 @@ class Kloudformation: StackBuilder{
                     customOriginConfig = CustomOriginConfig(
                             hTTPPort = Value.Of(80),
                             hTTPSPort = Value.Of(433),
-                            originProtocolPolicy = +"https-only"
+                            originProtocolPolicy = +"http-only"
                     )
             )
             distribution(
@@ -64,6 +64,7 @@ class Kloudformation: StackBuilder{
                             ),
                             defaultRootObject = +"index.html",
                             priceClass = +"PriceClass_200",
+                            httpVersion = +"http2",
                             viewerCertificate = ViewerCertificate(acmCertificateArn = certificate.ref(), sslSupportMethod = +"sni-only")
                     )
             )

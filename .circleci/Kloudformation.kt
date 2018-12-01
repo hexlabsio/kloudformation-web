@@ -108,7 +108,7 @@ fun KloudFormation.s3Website(
                 type = +"CNAME",
                 name = +"www" + +domainName + "."
         ) {
-            aliasTarget(AliasTarget(dNSName = distribution.DomainName(), hostedZoneId = +hostedZoneId))
+            resourceRecords(listOf(distribution.DomainName()))
         }
     }
 }

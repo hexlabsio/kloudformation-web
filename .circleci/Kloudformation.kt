@@ -102,14 +102,12 @@ fun KloudFormation.s3Website(
                 type = +"A",
                 name = +domainName + "."
         ) {
-            tTL("300")
             aliasTarget(AliasTarget(dNSName = distribution.DomainName(), hostedZoneId = +hostedZoneId))
         }
         recordSet(
                 type = +"CNAME",
                 name = +"www" + +domainName + "."
         ) {
-            tTL("300")
             aliasTarget(AliasTarget(dNSName = distribution.DomainName(), hostedZoneId = +hostedZoneId))
         }
     }

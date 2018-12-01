@@ -109,6 +109,6 @@ class CertInUsEast1: StackBuilder{
 }
 class Kloudformation: StackBuilder{
     override fun KloudFormation.create() {
-        s3Website("klouds.io", bucketName = "kloudformation-website",certificateReference = json(mapOf("Fn::ImportValue" to +certificateVariable)) as Value<String>)
+        s3Website("klouds.io", bucketName = "kloudformation-website",certificateReference = +"arn:aws:acm:us-east-1:662158168835:certificate/7541c12e-e284-4483-bd9d-fec25e90771c")
     }
 }

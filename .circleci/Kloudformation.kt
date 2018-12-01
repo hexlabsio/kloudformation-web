@@ -46,8 +46,6 @@ class Kloudformation: StackBuilder{
                     id = +"s3Origin",
                     domainName = bucket.WebsiteURL(),
                     customOriginConfig = CustomOriginConfig(
-                            hTTPPort = Value.Of(80),
-                            hTTPSPort = Value.Of(433),
                             originProtocolPolicy = +"http-only"
                     )
             )

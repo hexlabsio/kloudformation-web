@@ -17,9 +17,20 @@ class Playground extends React.Component {
                 <div className="playground-title">Try Kloud Formation</div>
                 <code>
                     {
-                        `fun main(args: Array<String>) {
-    println("Hello, world!")
-}`}
+                    `import io.kloudformation.model.KloudFormationTemplate
+import io.kloudformation.resource.sns.topic
+import io.kloudformation.toJson
+import io.kloudformation.toYaml
+fun main() {
+//sampleStart
+val template = KloudFormationTemplate.create {
+    topic()
+}
+println(template.toYaml())
+//sampleEnd
+}
+
+`}
                 </code>
             </div>
         );

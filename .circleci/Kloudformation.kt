@@ -113,7 +113,7 @@ class Kloudformation: StackBuilder{
         s3Website(
                 domainName = "kloudformation.hexlabs.io",
                 bucketName = "kloudformation-website",
-                certificateReference = +"arn:aws:acm:us-east-1:662158168835:certificate/7541c12e-e284-4483-bd9d-fec25e90771c"
+                certificateReference = +"arn:aws:acm:us-east-1:662158168835:certificate/2bf1f473-cdf7-453e-b479-6297b6580a5d"
         )
 
     }

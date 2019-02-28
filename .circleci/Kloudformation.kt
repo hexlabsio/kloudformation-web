@@ -102,7 +102,7 @@ val certificateVariable = "KloudsCertificate"
 
 class CertInUsEast1: StackBuilder{
     override fun KloudFormation.create() {
-        val certificate = certificate("klouds.io")
+        val certificate = certificate("kloudformation.hexlabs.io")
         outputs(
                 certificateVariable to Output(certificate.ref(), export = Output.Export(+certificateVariable))
         )
@@ -111,7 +111,7 @@ class CertInUsEast1: StackBuilder{
 class Kloudformation: StackBuilder{
     override fun KloudFormation.create() {
         s3Website(
-                domainName = "klouds.io",
+                domainName = "kloudformation.hexlabs.io",
                 bucketName = "kloudformation-website",
                 certificateReference = +"arn:aws:acm:us-east-1:662158168835:certificate/7541c12e-e284-4483-bd9d-fec25e90771c"
         )

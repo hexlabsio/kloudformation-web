@@ -7,7 +7,7 @@ class Playground extends React.Component {
     componentDidMount() {
         playground("code", {
             theme: "darcula",
-            server: "http://hexla-loadb-o4z00f89fxgv-1271793115.eu-west-1.elb.amazonaws.com"
+            server: "https://hexla-loadb-o4z00f89fxgv-1271793115.eu-west-1.elb.amazonaws.com"
         });
     }
 

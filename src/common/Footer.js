@@ -16,14 +16,14 @@ class Footer extends React.Component {
                     </div>
                     <div className="usefulLinks">
                        <div className="usefulLink">
-                           <a href="https://github.com/hexlabsio/kloudformation-specification-generator">Documentation</a>
+                           <a href="https://hexlabsio.github.io/kloudformation/get-started/get-started.html">Documentation</a>
                        </div>
                         <div className="usefulLink">
-                            <a href="https://github.com/hexlabsio/kloudformation-specification-generator">GitHub</a>
+                            <a href="https://github.com/hexlabsio/kloudformation">GitHub</a>
                         </div>
 
                         <div className="usefulLink">
-                            <a href="https://github.com/hexlabsio/kloudformation-specification-generator">License</a>
+                            <a href="https://github.com/hexlabsio/kloudformation/blob/master/LICENSE">License</a>
                         </div>
                     </div>
                 </div>

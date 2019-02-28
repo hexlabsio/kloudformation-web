@@ -8,7 +8,7 @@ class Header extends React.Component {
             <header>
                 <div className="logo">
                     <a href="/">
-                        <img alt="Kloud Formation logo" src={logo} />
+                        <img alt="KloudFormation logo" src={logo} />
                     </a>
                 </div>
                 <nav>

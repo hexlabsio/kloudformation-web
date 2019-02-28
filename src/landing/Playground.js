@@ -14,7 +14,7 @@ class Playground extends React.Component {
     render() {
         return (
             <div className="playground">
-                <div className="playground-title">Try Kloud Formation</div>
+                <div className="playground-title">Try KloudFormation</div>
                 <code autocomplete="true" highlight-on-fly="true">
                     {
                     `import io.kloudformation.model.KloudFormationTemplate

@@ -12,7 +12,7 @@ export default props => {
                     </div>
                     <div className="details">
                         <div className="name">Infrastructure as Code</div>
-                        <div className="description">Codifying your infrastructure, Kloud Formation allows you to model your entire infrastructure in code</div>
+                        <div className="description">Codifying your infrastructure, KloudFormation allows you to model your entire infrastructure in code</div>
                     </div>
                 </div>
                 <div className="feature">

@@ -7,7 +7,7 @@ class Playground extends React.Component {
     componentDidMount() {
         playground("code", {
             theme: "darcula",
-            server: "https://hexla-loadb-o4z00f89fxgv-1271793115.eu-west-1.elb.amazonaws.com"
+            server: "https://playground.hexlabs.io"
         });
     }
 
@@ -15,7 +15,7 @@ class Playground extends React.Component {
         return (
             <div className="playground">
                 <div className="playground-title">Try KloudFormation</div>
-                <code autocomplete="true" highlight-on-fly="true">
+                <code autoComplete="true" highlight-on-fly="true">
                     {
                     `import io.kloudformation.model.KloudFormationTemplate
 import io.kloudformation.resource.aws.ec2.*

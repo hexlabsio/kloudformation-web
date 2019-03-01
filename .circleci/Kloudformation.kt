@@ -79,7 +79,7 @@ fun KloudFormation.s3Website(
                 allowedMethods = +listOf(+"GET", +"HEAD", +"OPTIONS"),
                 forwardedValues = ForwardedValues(queryString = +true),
                 targetOriginId = origin.id,
-                viewerProtocolPolicy = +"allow-all"
+                viewerProtocolPolicy = +"redirect-to-https"
         ),
         distributionConfig: DistributionConfig = DistributionConfig(
                 origins = listOf(origin),

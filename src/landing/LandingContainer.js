@@ -11,6 +11,9 @@ class LandingContainer extends React.Component {
         return (
             <main>
                 <Introduction />
+                <div className="install-snippet">
+                    <pre><span id="dollar">$</span> curl -s <span>https://install.kloudformation.hexlabs.io</span> | sh</pre>
+                </div>
                 <Features />
                 <Playground />
                 <Footer />

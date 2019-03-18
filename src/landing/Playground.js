@@ -15,7 +15,7 @@ class Playground extends React.Component {
         return (
             <div className="playground">
                 <div className="playground-title">Try KloudFormation</div>
-                <code autoComplete="true" highlight-on-fly="true">
+                <code autoComplete="true">
                     {
                     `import io.kloudformation.model.KloudFormationTemplate
 import io.kloudformation.resource.aws.ec2.*

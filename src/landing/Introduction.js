@@ -13,10 +13,10 @@ export default props => {
                 <div className="sub">KloudFormation is a one-to-one mapping of Amazon’s CloudFormation generated into a Kotlin library allowing users to write type safe stacks in Kotlin.</div>
                 <div className="action">
                     <a href="https://hexlabsio.github.io/kloudformation/get-started/get-started.html">
-                    <div className="button">
-                        <span>Learn KloudFormation</span>
-                        <i className="fal fa-search" />
-                    </div>
+                        <div className="button">
+                            <span>Learn KloudFormation</span>
+                            <i className="fal fa-search" />
+                        </div>
                     </a>
                 </div>
             </div>
